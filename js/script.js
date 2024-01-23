@@ -9,12 +9,23 @@ const app = createApp({
             { id: 2, done: true, text: 'Lavare i capelli' },
             { id: 3, done: false, text: 'Comprare una marca da bollo' },
             { id: 4, done: false, text: 'Aggiornare il PC' }
-        ]
+        ],
+        newTask: '',
     }),
     computed: {
 
     },
     methods: {
+        addTask() {
+            const newId = this.tasks.length + 1;
+            this.tasks.push({
+                id: newId,
+                done: false,
+                text: this.newTask
+            });
+            this.newTask = '';
+
+        },
         removeTask(id) {
             this.tasks = this.tasks.filter(task => task.id !== id);
         }
