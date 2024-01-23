@@ -32,6 +32,19 @@
 
 <body>
     <div id="root">
+        <div class="container w-50 text-center">
+
+            <h1>To Do List</h1>
+
+            <!-- Lista dei Task -->
+
+            <ul class="list-group">
+                <li v-for="task in tasks" class="list-group-item">
+                    <span :class="{'text-underline': task.done}">{{task.text}}</span>
+                </li>
+            </ul>
+        </div>
+
     </div>
 </body>
 
