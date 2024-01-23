@@ -2,8 +2,8 @@ console.log('Vue OK', Vue);
 
 const { createApp } = Vue;
 const app = createApp({
-    name: 'VueToDoList',
     data: () => ({
+        name: 'VueToDoList',
         tasks: [
             { id: 1, done: false, text: 'Fare la spesa' },
             { id: 2, done: true, text: 'Lavare i capelli' },
