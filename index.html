@@ -41,11 +41,19 @@
                 <h1>To Do List</h1>
             </header>
 
+            <!-- Navbar -->
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Cerca..." v-model.trim="searchText">
+                <span class="input-group-text">
+                    <i class="fas fa-search"></i>
+                </span>
+            </div>
 
             <!-- Lista dei task -->
 
             <ul class="list-group">
-                <li v-for="task in tasks" class="list-group-item d-flex justify-content-between align-items-center">
+                <li v-for="task in filteredTasks"
+                    class="list-group-item d-flex justify-content-between align-items-center">
                     <div class="form-check">
                         <label class="form-check-label" :class="{'text-underline': task.done}" role="button">
                             <input class="form-check-input" type="checkbox" v-model="task.done">
@@ -68,7 +76,11 @@
                 </li>
             </ul>
 
-            <h2 class="mt-3" v-show="!tasks.length">Non ci sono Task!</h2>
+            <h2 class="mt-3" v-show="!filteredTasks.length">Non ci sono Task
+                <span v-if="searchText">
+                    contenenti "{{ searchText }}"
+                </span>
+            </h2>
         </div>
 
     </div>

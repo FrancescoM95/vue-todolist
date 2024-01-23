@@ -11,9 +11,16 @@ const app = createApp({
             { id: 4, done: false, text: 'Aggiornare il PC' }
         ],
         newTask: '',
+        searchText: '',
     }),
     computed: {
+        filteredTasks() {
+            const searchTerm = this.searchText.toLowerCase();
 
+            return this.tasks.filter(task =>
+                task.text.toLowerCase().includes(searchTerm)
+            )
+        }
     },
     methods: {
         addTask() {
