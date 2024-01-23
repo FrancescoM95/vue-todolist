@@ -2,6 +2,11 @@
     padding: 30px;
 }
 
+#logo {
+    height: 50px;
+    display: block;
+}
+
 .text-underline {
     text-decoration: line-through;
 }
