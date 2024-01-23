@@ -17,14 +17,14 @@ const app = createApp({
     },
     methods: {
         addTask() {
-            const newId = this.tasks.length + 1;
-            this.tasks.push({
-                id: newId,
-                done: false,
-                text: this.newTask
-            });
-            this.newTask = '';
-
+            if (this.newTask) {
+                this.tasks.push({
+                    id: new Date().toISOString(),
+                    done: false,
+                    text: this.newTask
+                });
+                this.newTask = '';
+            }
         },
         removeTask(id) {
             this.tasks = this.tasks.filter(task => task.id !== id);

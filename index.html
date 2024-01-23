@@ -40,18 +40,16 @@
 
             <ul class="list-group">
                 <li v-for="task in tasks" class="list-group-item d-flex justify-content-between align-items-center">
-                    <span :class="{'text-underline': task.done}">{{task.text}}</span>
-                    <button type="button" class="btn btn-secondary" @click="removeTask(task.id)">
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
+                    <span :class="{'text-underline': task.done}">{{ task.text }}</span>
+                    <button type="button" class="btn btn-close" @click="removeTask(task.id)"></button>
                 </li>
             </ul>
 
             <!-- Input per aggiungere nuovi task -->
 
             <div class="input-group my-4 w-75">
-                <input type="text" v-model.trim="newTask" class="form-control" placeholder="Inserisci un nuovo To Do"
-                    autofocus>
+                <input type="text" v-model.trim="newTask" @keyup.enter="addTask" class="form-control"
+                    placeholder="Inserisci un nuovo To Do" autofocus>
                 <button class="btn btn-success" type="button" @click="addTask">
                     <i class="fa-solid fa-plus"></i>
                 </button>
